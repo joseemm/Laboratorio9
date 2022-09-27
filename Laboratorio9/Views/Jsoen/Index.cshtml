@@ -1,0 +1,44 @@
+﻿@model List<Laboratorio9.Models.Cliente>
+@{
+    ViewBag.Title = "Index";
+}
+
+    <input onclick=" Obten " type="button" value="Obtener" />
+<div id="MiDiv ">
+
+
+
+</div>
+
+<script>
+
+
+
+    function Obten() {
+
+
+
+         fetch("@Url.Content("~/Jsoen/ObtenerClientes")")
+            .then(function (res) {
+                return res.Json();
+
+            })
+
+            .then(function (miJson) {
+                console.log(miJson);
+                let miResultado =  "";
+
+
+                for (let i = 0; i < miJsoen.length; i++) {
+                    miResultado += "<p>" + miJson[i].Nombre + "</p>";
+
+
+                }
+
+                document.getElementById("MiDiv").innerHTML = miJson;
+            })
+
+
+    }
+
+</script >
